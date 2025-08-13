@@ -12,7 +12,7 @@
         <link rel="apple-touch-icon" href="logo.png">
         <link rel="icon" href="logo.png">
 
-        <title>WebGL Fluid Simulation</title>
+        <title>empty | portfolio</title>
         <meta name="description" content="A WebGL fluid simulation that works in mobile browsers.">
 
         <meta property="og:type" content="website">
@@ -20,6 +20,11 @@
         <meta property="og:description" content="A WebGL fluid simulation that works in mobile browsers.">
         <meta property="og:url" content="https://paveldogreat.github.io/WebGL-Fluid-Simulation/">
         <meta property="og:image" content="https://paveldogreat.github.io/WebGL-Fluid-Simulation/logo.png">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
 
         <script type="text/javascript" src="dat.gui.min.js"></script>
         <style>
@@ -176,25 +181,343 @@
                 width: 100%;
             }
 
-            @keyframes promo-appear-animation {
-                0% {
-                    transform: scale(2.0);
-                    opacity: 0;
-                }
-                100% {
-                    transform: scale(1.0);
-                    opacity: 1;
-                }
+            /* تنظیمات پایه */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        html, body {
+            overflow: hidden;
+            background-color: #000;
+            height: 100%;
+            font-smooth: always;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            margin: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* کانتینر اصلی پورتفولیو */
+        .portfolio-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+        }
+        .skills {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 3s;
+        }
+
+        .skill-item {
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 1px;
+            position: relative;
+            padding: 0 10px;
+        }
+
+        .skill-item:not(:last-child):after {
+            content: "•";
+            position: absolute;
+            right: -10px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        /* عنوان نام */
+        .name-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid rgba(255, 255, 255, 0.75);
+            animation: 
+                typing 1.8s steps(30, end) forwards,
+                blink-caret 0.75s step-end infinite;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 1px;
+            opacity: 0;
+            animation-delay: 0.5s;
+        }
+
+        /* عنوان شغلی */
+        .job-title {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin: 15px 0;
+            opacity: 0;
+            animation: fadeIn 1.2s forwards 2.2s;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+            font-weight: 400;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* بخش اطلاعات تماس */
+        .contact-info {
+            margin-top: 40px;
+            opacity: 0;
+            animation: slideUp 1s forwards 3s;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        /* آیتم‌های تماس */
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 180px;
+            justify-content: center;
+        }
+
+        .contact-item:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* آیکون‌ها */
+        .contact-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* انیمیشن‌ها */
+        @keyframes typing {
+            from { 
+                width: 0;
+                opacity: 1;
             }
+            to { 
+                width: 100%;
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(255, 255, 255, 0.75) }
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1 }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* تنظیمات برای موبایل */
+        @media (max-width: 768px) {
+            .portfolio-container {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .name-title {
+                font-size: 2.2rem;
+                border-right-width: 2px;
+            }
+            
+            .job-title {
+                font-size: 1.1rem;
+                margin: 15px 0;
+                white-space: normal;
+            }
+            
+            .contact-info {
+                margin-top: 30px;
+                gap: 10px;
+            }
+            
+            .contact-item {
+                padding: 10px 15px;
+                min-width: 160px;
+            }
+            
+            .contact-item a {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .name-title {
+                font-size: 1.8rem;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                opacity: 1;
+                overflow: visible;
+            }
+            
+            .job-title {
+                font-size: 1rem;
+                animation-delay: 0.5s;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-item {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+        /* اضافه کردن به بخش استایل‌ها */
+        .credits {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.5);
+            font-family: 'Montserrat', sans-serif;
+            z-index: 100;
+            background-color: rgba(0,0,0,0.2);
+            padding: 5px 10px;
+            border-radius: 3px;
+            backdrop-filter: blur(2px);
+        }
+
+        .credits a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .credits a:hover {
+            color: white;
+            text-decoration: underline;
+        }
         </style>
         <script>
             window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
             ga('create', 'UA-105392568-1', 'auto');
             ga('send', 'pageview');
         </script>
-        <script async src="https://www.google-analytics.com/analytics.js"></script>
+
     </head>
     <body>
+        <div class="portfolio-container">
+        <h1 class="name-title">Ali Mahdavinia</h1>
+        <p class="job-title">From the void of "is empty"; I code the light.</p>
+        <div class="skills">
+            <div class="skill-item">Backend Development</div>
+            <div class="skill-item">System Architecture</div>
+            <div class="skill-item">Python & Django</div>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="mailto:ali.mahdavinia@example.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                    Email Me
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://t.me/mahdaviniaali" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+                    </svg>
+                    Telegram
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://www.linkedin.com/in/mahdaviniaali/" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.3 3.3 0 0 0-3.3-3.3c-.9 0-1.7.3-2.2.9v-.9h-2.5v8.6h2.5v-4.8c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v4.8h2.5M6.9 8.3a1.6 1.6 0 0 0 1.6-1.6 1.6 1.6 0 0 0-1.6-1.6 1.6 1.6 0 0 0-1.6 1.6 1.6 1.6 0 0 0 1.6 1.6m1.4 9.7h-2.5V9.8h2.5v8.2z"/>
+                    </svg>
+                    LinkedIn
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://github.com/mahdaviniaali" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.9.1 3.2.7.8 1.2 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/>
+                    </svg>
+                    GitHub
+                </a>
+            </div>
+            <div class="contact-item">
+                <a href="https://wa.me/+989214746116" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <a href="./html.html" target="_blank">
+                    <svg class="contact-icon" viewBox="0 0 24 24">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                    </svg>
+                    My Resume
+                </a>
+            </div>
+            
+        </div>
+       
+    </div>
         <canvas></canvas>
 
         <!-- Mother of God, pls forgive me -->
@@ -217,6 +540,9 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div style="position: fixed; bottom: 10px; right: 10px; font-size: 12px; color: rgba(255,255,255,0.5); font-family: sans-serif;">
+            Based on <a href="https://github.com/PavelDoGreat/WebGL-Fluid-Simulation" target="_blank" style="color: rgba(255,255,255,0.7);">WebGL Fluid Simulation</a>
         </div>
 
         <script src="./script.js"></script>
