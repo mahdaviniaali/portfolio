@@ -1,0 +1,433 @@
+{
+  "en": {
+    "meta": {
+      "page_title": "Ali Mahdavinia",
+      "description": "Resume and portfolio of Ali Mahdavinia, backend developer and system architect. Contact information, projects, and skills."
+    },
+    "hero": {
+      "name": "Ali Mahdavinia",
+      "headline": "Backend Developer — Django / Python",
+      "subheadline": "",
+      "badges": []
+    },
+    "contact": {
+      "location": "Tehran, Narmak",
+      "phone": "+98 905 927 2346",
+      "email": "alimahdavinia125@gmail.com",
+      "links": {
+        "github": "https://github.com/mahdaviniaali",
+        "linkedin": "https://linkedin.com/in/mahdaviniaali",
+        "telegram": "https://t.me/mahdaviniaali"
+      }
+    },
+    "summary": "Backend developer focused on Django and Python with experience in building scalable B2B and API-driven systems. Passionate about modular architecture, clean coding, and solving real-world problems. Experienced in teaching programming concepts and technical documentation, with interests in complementary backend fields like Elasticsearch, DevOps, and even OSINT.",
+    "experience": [
+      {
+        "title": "Freelance Developer",
+        "company": "",
+        "location": "Tehran",
+        "start_date": "Dec 2023",
+        "end_date": "Present",
+        "description": "Implementing web projects with Django/DRF, designing modular and API-first architecture. Focus on security, testability, and scalability."
+      },
+      {
+        "title": "Python Programming Instructor",
+        "company": "",
+        "location": "Online Sessions",
+        "start_date": "Mar 2023",
+        "end_date": "Sep 2023",
+        "description": "Conducting free Python courses for enthusiasts from different cities and providing post-course mentoring."
+      }
+    ],
+    "projects": [
+      {
+        "title": "Reverse Auction B2B System (Construction Materials Supply)",
+        "status": "In Progress",
+        "tech_stack": [
+          "Django",
+          "DRF",
+          "JWT",
+          "PostgreSQL",
+          "Redis",
+          "Celery",
+          "Docker"
+        ],
+        "description": "Corporate purchasing platform; buyers register RFQs and sellers submit proposals. Modular architecture ready for future phases (payment gateway, financial plans, etc.).",
+        "features": [
+          "OTP authentication on JWT",
+          "Dynamic role assignment (buyer/supplier) with switching capability",
+          "RFQ and price offer management with notifications",
+          "Separate individual/corporate profiles",
+          "Professional admin panel with custom actions and filters",
+          "API documentation with Swagger; high testability"
+        ],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "E-commerce Web App (Industrial Pump Sales)",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "PostgreSQL",
+          "Bootstrap",
+          "Payment Gateway",
+          "Cart System"
+        ],
+        "description": "Online store for industrial pump products with classic e-commerce structure and advanced order management system.",
+        "features": [
+          "Cart and order system with tracking capability",
+          "Implementation of dedicated card-to-card payment gateway",
+          "Product inventory management and specialized categories",
+          "Custom admin panel for order management",
+          "Order status notification system for customers"
+        ],
+        "date": "Jan 2024",
+        "role": "Fullstack Developer",
+        "link": "https://waterrisen.com"
+      },
+      {
+        "title": "Wholesale Ordering System (Abrasives and Equipment)",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "PostgreSQL",
+          "Bootstrap",
+          "Pricing System",
+          "B2B Order Management"
+        ],
+        "description": "Wholesale ordering system (B2B) for abrasive products and related equipment with dynamic pricing system and full admin control.",
+        "features": [
+          "Order registration system without final price and admin approval",
+          "Multi-stage ordering process: registration → approval → payment",
+          "Order management, pricing and status tracking from admin panel",
+          "Cart system with guest cart preservation capability",
+          "Advanced modeling with complex relationships and discount system",
+          "Secure authentication structure and expandable role system"
+        ],
+        "date": "Mar 2024",
+        "role": "Backend Developer",
+        "link": ""
+      },
+      {
+        "title": "Student Management System",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "MySQL",
+          "Bootstrap"
+        ],
+        "description": "Student management system with course selection, course and group management, and separate panels for admin and student.",
+        "features": [
+          "Admin panel for system administrators",
+          "User panel for students",
+          "Course and educational group management",
+          "Course selection process"
+        ],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "ATM — Practice Project",
+        "status": "",
+        "tech_stack": [
+          "Python"
+        ],
+        "description": "First personal project to understand programming principles: account management, admin and customer panel, and loan process (Multi-Process).",
+        "features": [],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "University System — Practice/Academic",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "Authorization"
+        ],
+        "description": "Implementation of login/access levels, course selection, student management, definition of group manager and focus on database design.",
+        "features": [],
+        "date": "",
+        "role": "",
+        "link": ""
+      }
+    ],
+    "skills": [
+      {
+        "category_en": "General",
+        "category_fa": "عمومی",
+        "items": [
+          "Django / DRF",
+          "Python",
+          "Linux",
+          "Redis",
+          "Celery",
+          "Docker",
+          "Elasticsearch",
+          "Selenium",
+          "OSINT",
+          "MySQL",
+          "PostgreSQL",
+          "Unit Testing",
+          "Git / GitHub / GitLab",
+          "CI/CD (GitLab CI)",
+          "HTML / CSS / Bootstrap",
+          "JavaScript",
+          "C++",
+          "OOP",
+          "RESTful APIs",
+          "JWT / OTP"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "Bachelor's in Computer Engineering — Software Major",
+        "institution": "Islamic Azad University, Tehran North Branch",
+        "start_date": "Sep 2022",
+        "end_date": "Present",
+        "notes": "Voluntary assistance to students in technical courses (Programming Fundamentals, Data Structures, Databases, Software Engineering, etc.). Member of scientific association for one semester and research collaboration with a professor."
+      }
+    ],
+    "certificates": [
+      {
+        "title": "Comprehensive Python Programming Engineering",
+        "issuer": "Doran Academy",
+        "date": "Mar 2023"
+      },
+      {
+        "title": "Backend Develop with Django",
+        "issuer": "Doran Academy",
+        "date": "Feb 2024"
+      }
+    ],
+    "languages": [
+      { "name": "Persian", "level": "Native" },
+      { "name": "English", "level": "Advanced" },
+      { "name": "Russian", "level": "Basic" }
+    ],
+    "footer": {
+      "signature": "Designed with passion — Ali Mahdavinia © 2024 ·",
+      "back_to_top_label": "Top"
+    }
+  },
+  "fa": {
+    "meta": {
+      "page_title": "علی مهدوی‌نیا",
+      "description": "رزومه و نمونه‌کارهای علی مهدوی‌نیا، توسعه‌دهندهٔ بک‌اند و معمار سیستم. اطلاعات تماس، پروژه‌ها و مهارت‌ها."
+    },
+    "hero": {
+      "name": "علی مهدوی‌نیا",
+      "headline": "توسعه‌دهندهٔ بک‌اند — Django / Python",
+      "subheadline": "",
+      "badges": []
+    },
+    "contact": {
+      "location": "تهران، نارمک",
+      "phone": "+۹۸ ۹۰۵ ۹۲۷ ۲۳۴۶",
+      "email": "alimahdavinia125@gmail.com",
+      "links": {
+        "github": "https://github.com/mahdaviniaali",
+        "linkedin": "https://linkedin.com/in/mahdaviniaali",
+        "telegram": "https://t.me/mahdaviniaali"
+      }
+    },
+    "summary": "برنامه‌نویس بک‌اند با تمرکز روی Django و Python و تجربهٔ ساخت سامانه‌های مقیاس‌پذیر B2B و API-محور. عاشق طراحی معماری ماژولار، تمیزنویسی و حل مسئله‌های واقعی. تجربهٔ آموزش مفاهیم برنامه‌نویسی و مستندسازی فنی دارم و به حوزه‌های مکمل بک‌اند مثل Elasticsearch، DevOps و حتی OSINT علاقه‌مندم.",
+    "experience": [
+      {
+        "title": "برنامه‌نویس فریلنسر",
+        "company": "",
+        "location": "تهران",
+        "start_date": "آذر ۱۴۰۳",
+        "end_date": "اکنون",
+        "description": "پیاده‌سازی پروژه‌های وب با Django/DRF، طراحی معماری ماژولار و API-First. تمرکز روی امنیت، تست‌پذیری و مقیاس‌پذیری."
+      },
+      {
+        "title": "مدرس برنامه‌نویسی پایتون",
+        "company": "",
+        "location": "جلسات آنلاین",
+        "start_date": "فروردین ۱۴۰۲",
+        "end_date": "مهر ۱۴۰۲",
+        "description": "برگزاری دوره‌های رایگان پایتون برای علاقه‌مندان از شهرهای مختلف و mentoring پس از دوره."
+      }
+    ],
+    "projects": [
+      {
+        "title": "سامانه مناقصهٔ معکوس B2B (تأمین مصالح ساختمانی)",
+        "status": "در حال اجرا",
+        "tech_stack": [
+          "Django",
+          "DRF",
+          "JWT",
+          "PostgreSQL",
+          "Redis",
+          "Celery",
+          "Docker"
+        ],
+        "description": "پلتفرم خرید سازمانی؛ ثبت RFQ توسط خریداران و ارسال Proposal توسط فروشندگان. معماری ماژولار و آمادهٔ فازهای آینده (درگاه پرداخت، پلن‌های مالی و...).",
+        "features": [
+          "احراز هویت با OTP روی JWT",
+          "نقش‌بندی پویا (خریدار/تأمین‌کننده) و قابل سوییچ",
+          "مدیریت RFQ و پیشنهاد قیمت با نوتیفیکیشن",
+          "پروفایل تفکیکی حقیقی/حقوقی",
+          "پنل ادمین حرفه‌ای با اکشن و فیلتر سفارشی",
+          "مستندسازی API با Swagger؛ تست‌پذیری بالا"
+        ],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "وب‌اپلیکیشن فروشگاهی (فروش پمپ صنعتی)",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "PostgreSQL",
+          "Bootstrap",
+          "درگاه پرداخت",
+          "سیستم Cart"
+        ],
+        "description": "فروشگاه اینترنتی محصولات پمپ صنعتی با ساختار کلاسیک فروشگاهی و سیستم مدیریت سفارشات پیشرفته",
+        "features": [
+          "طراحی سیستم Cart و سفارش با امکان پیگیری",
+          "پیاده‌سازی درگاه پرداخت کارت‌به‌کارت اختصاصی",
+          "مدیریت موجودی محصولات و دسته‌بندی‌های تخصصی",
+          "پنل اختصاصی برای مدیریت سفارشات توسط ادمین",
+          "سیستم اعلان وضعیت سفارش برای مشتریان"
+        ],
+        "date": "دی ۱۴۰۳",
+        "role": "Fullstack Developer",
+        "link": "https://waterrisen.com"
+      },
+      {
+        "title": "سامانه سفارش‌گیری عمده‌فروشی (مسباره و تجهیزات)",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "PostgreSQL",
+          "Bootstrap",
+          "سیستم قیمت‌گذاری",
+          "مدیریت سفارش B2B"
+        ],
+        "description": "سامانه سفارش‌گیری عمده‌فروشی (B2B) برای محصولات مسباره و تجهیزات مرتبط و با سیستم قیمت‌گذاری پویا و کنترل کامل توسط ادمین",
+        "features": [
+          "سیستم ثبت سفارش بدون قیمت نهایی و تایید توسط ادمین",
+          "فرآیند سفارش‌گیری مرحله‌ای: ثبت → تایید → پرداخت",
+          "مدیریت سفارش‌ها، قیمت‌گذاری و وضعیت‌ها از پنل ادمین",
+          "سیستم Cart با قابلیت حفظ سبد خرید برای کاربران مهمان",
+          "مدل‌سازی پیشرفته با روابط پیچیده و سیستم تخفیف",
+          "ساختار احراز هویت امن و نقش‌بندی قابل توسعه"
+        ],
+        "date": "اسفند ۱۴۰۳",
+        "role": "Backend Developer",
+        "link": ""
+      },
+      {
+        "title": "سامانهٔ مدیریت دانشجویی",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "MySQL",
+          "Bootstrap"
+        ],
+        "description": "سیستم مدیریت دانشجویان با انتخاب واحد، مدیریت دروس و گروه‌ها، و پنل‌های مجزا برای مدیر و دانشجو.",
+        "features": [
+          "پنل مدیریت برای مدیران سیستم",
+          "پنل کاربری برای دانشجویان",
+          "مدیریت دروس و گروه‌های آموزشی",
+          "فرآیند انتخاب واحد"
+        ],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "ATM — پروژهٔ تمرینی",
+        "status": "",
+        "tech_stack": [
+          "Python"
+        ],
+        "description": "اولین پروژهٔ شخصی برای فهم اصول برنامه‌نویسی: مدیریت حساب، پنل مدیر و مشترکین، و فرآیند وام (Multi-Process).",
+        "features": [],
+        "date": "",
+        "role": "",
+        "link": ""
+      },
+      {
+        "title": "سامانهٔ دانشگاهی — تمرینی/دانشگاهی",
+        "status": "",
+        "tech_stack": [
+          "Django",
+          "Authorization"
+        ],
+        "description": "پیاده‌سازی ورود/سطوح دسترسی، انتخاب واحد، مدیریت دانشجو، تعریف مدیر گروه و تمرکز بر طراحی دیتابیس.",
+        "features": [],
+        "date": "",
+        "role": "",
+        "link": ""
+      }
+    ],
+    "skills": [
+      {
+        "category_en": "General",
+        "category_fa": "عمومی",
+        "items": [
+          "Django / DRF",
+          "Python",
+          "Linux",
+          "Redis",
+          "Celery",
+          "Docker",
+          "Elasticsearch",
+          "Selenium",
+          "OSINT",
+          "MySQL",
+          "PostgreSQL",
+          "Unit Testing",
+          "Git / GitHub / GitLab",
+          "CI/CD (GitLab CI)",
+          "HTML / CSS / Bootstrap",
+          "JavaScript",
+          "C++",
+          "OOP",
+          "RESTful APIs",
+          "JWT / OTP"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "کارشناسی مهندسی کامپیوتر — گرایش نرم‌افزار",
+        "institution": "دانشگاه آزاد اسلامی تهران شمال",
+        "start_date": "مهر ۱۴۰۱",
+        "end_date": "اکنون",
+        "notes": "کمک داوطلبانه به دانشجویان در دروس فنی (مبانی برنامه‌نویسی، ساختار داده، پایگاه داده، مهندسی نرم‌افزار و...). عضو انجمن علمی یک ترم و همکاری پژوهشی با یکی از اساتید."
+      }
+    ],
+    "certificates": [
+      {
+        "title": "مهندسی جامع برنامه‌نویسی پایتون",
+        "issuer": "آکادمی دوران",
+        "date": "فروردین ۱۴۰۳"
+      },
+      {
+        "title": "Backend Develop with Django",
+        "issuer": "آکادمی دوران",
+        "date": "اسفند ۱۴۰۳"
+      }
+    ],
+    "languages": [
+      { "name": "فارسی", "level": "زبان مادری" },
+      { "name": "انگلیسی", "level": "پیشرفته" },
+      { "name": "روسی", "level": "آشنایی نسبی" }
+    ],
+    "footer": {
+      "signature": "طراحی شده با علاقه — علی مهدوی‌نیا © ۱۴۰۳ ·",
+      "back_to_top_label": "بالا"
+    }
+  }
+}
+
