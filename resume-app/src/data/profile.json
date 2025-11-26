@@ -1,0 +1,471 @@
+{
+  "landing": {
+    "name": "Ali Mahdavinia",
+    "tagline": "From the void of \"is empty\"; I code the light.",
+    "skills": [
+      "Backend Development",
+      "System Architecture",
+      "Python & Django"
+    ],
+    "contacts": [
+      {
+        "type": "email",
+        "label": "Email Me",
+        "href": "mailto:alimahdavinia125@gmail.com"
+      },
+      {
+        "type": "telegram",
+        "label": "Telegram",
+        "href": "https://t.me/mahdaviniaali"
+      },
+      {
+        "type": "linkedin",
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/mahdaviniaali/"
+      },
+      {
+        "type": "github",
+        "label": "GitHub",
+        "href": "https://github.com/mahdaviniaali"
+      },
+      {
+        "type": "whatsapp",
+        "label": "WhatsApp",
+        "href": "https://wa.me/+989214746116"
+      }
+    ],
+    "resumeLink": {
+      "label": "My Resume",
+      "href": "/resume"
+    }
+  },
+  "resume": {
+    "personal": {
+      "name": {
+        "fa": "علی مهدوی‌نیا",
+        "en": "Ali Mahdavinia"
+      },
+      "tagline": {
+        "fa": "توسعه‌دهندهٔ بک‌اند — Django / Python",
+        "en": "Backend Developer — Django / Python"
+      },
+      "avatar": {
+        "fa": "ع",
+        "en": "A"
+      },
+      "location": {
+        "fa": "تهران، نارمک",
+        "en": "Tehran, Narmak"
+      },
+      "phone": {
+        "fa": "+۹۸ ۹۰۵ ۹۲۷ ۲۳۴۶",
+        "en": "+98 905 927 2346"
+      },
+      "phoneHref": "tel:+989059272346",
+      "email": "alimahdavinia125@gmail.com",
+      "badges": [
+        {
+          "fa": "Backend • API-First",
+          "en": "Backend • API-First"
+        },
+        {
+          "fa": "System Architecture",
+          "en": "System Architecture"
+        },
+        {
+          "fa": "Technical Writing",
+          "en": "Technical Writing"
+        }
+      ]
+    },
+    "contactsSecondary": [
+      {
+        "type": "github",
+        "href": "https://github.com/mahdaviniaali",
+        "label": {
+          "fa": "گیت‌هاب",
+          "en": "GitHub"
+        }
+      },
+      {
+        "type": "linkedin",
+        "href": "https://linkedin.com/in/mahdaviniaali",
+        "label": {
+          "fa": "لینکدین",
+          "en": "LinkedIn"
+        }
+      },
+      {
+        "type": "telegram",
+        "href": "https://t.me/mahdaviniaali",
+        "label": {
+          "fa": "تلگرام",
+          "en": "Telegram"
+        }
+      }
+    ],
+    "summary": {
+      "fa": "برنامه‌نویس بک‌اند با تمرکز روی Django و Python و تجربهٔ ساخت سامانه‌های مقیاس‌پذیر B2B و API-محور. عاشق طراحی معماری ماژولار، تمیزنویسی و حل مسئله‌های واقعی. تجربهٔ آموزش مفاهیم برنامه‌نویسی و مستندسازی فنی دارم و به حوزه‌های مکمل بک‌اند مثل Elasticsearch، DevOps و حتی OSINT علاقه‌مندم.",
+      "en": "Backend developer focused on Django and Python with experience building scalable B2B and API-first systems. Passionate about modular architecture, clean code, and solving real-world problems. I also teach programming and technical writing, and explore adjacent backend fields like Elasticsearch, DevOps, and OSINT."
+    },
+    "experiences": [
+      {
+        "title": {
+          "fa": "برنامه‌نویس فریلنسر",
+          "en": "Freelance Developer"
+        },
+        "location": {
+          "fa": "تهران",
+          "en": "Tehran"
+        },
+        "date": {
+          "fa": "آذر ۱۴۰۳ — اکنون",
+          "en": "Dec 2023 — Present"
+        },
+        "description": {
+          "fa": "پیاده‌سازی پروژه‌های وب با Django/DRF، طراحی معماری ماژولار و API-First. تمرکز روی امنیت، تست‌پذیری و مقیاس‌پذیری.",
+          "en": "Delivering web projects with Django/DRF, designing modular API-first architectures with a focus on security, testability, and scalability."
+        }
+      },
+      {
+        "title": {
+          "fa": "مدرس برنامه‌نویسی پایتون",
+          "en": "Python Programming Instructor"
+        },
+        "location": {
+          "fa": "جلسات آنلاین",
+          "en": "Online Sessions"
+        },
+        "date": {
+          "fa": "فروردین ۱۴۰۲ — مهر ۱۴۰۲",
+          "en": "Mar 2023 — Sep 2023"
+        },
+        "description": {
+          "fa": "برگزاری دوره‌های رایگان پایتون برای علاقه‌مندان از شهرهای مختلف و mentoring پس از دوره.",
+          "en": "Organized free Python courses for learners across cities and continued mentoring after the program."
+        }
+      }
+    ],
+    "projects": {
+      "major": [
+        {
+          "title": {
+            "fa": "سامانه مناقصهٔ معکوس B2B (تأمین مصالح ساختمانی) — در حال اجرا",
+            "en": "Reverse Auction B2B System (Construction Materials Supply) — In Progress"
+          },
+          "tech": [
+            "Django",
+            "DRF",
+            "JWT",
+            "PostgreSQL",
+            "Redis",
+            "Celery",
+            "Docker"
+          ],
+          "description": {
+            "fa": "پلتفرم خرید سازمانی؛ ثبت RFQ توسط خریداران و ارسال Proposal توسط فروشندگان. معماری ماژولار و آمادهٔ فازهای آینده (درگاه پرداخت، پلن‌های مالی و...).",
+            "en": "Corporate purchasing platform with RFQs from buyers and proposals from suppliers. Modular architecture ready for future phases like payments and financing."
+          },
+          "features": [
+            {
+              "fa": "احراز هویت با OTP روی JWT",
+              "en": "OTP authentication built on JWT"
+            },
+            {
+              "fa": "نقش‌بندی پویا (خریدار/تأمین‌کننده) و قابل سوییچ",
+              "en": "Dynamic buyer/supplier role switching"
+            },
+            {
+              "fa": "مدیریت RFQ و پیشنهاد قیمت با نوتیفیکیشن",
+              "en": "RFQ and proposal management with notifications"
+            },
+            {
+              "fa": "پروفایل تفکیکی حقیقی/حقوقی",
+              "en": "Separate individual and corporate profiles"
+            },
+            {
+              "fa": "پنل ادمین حرفه‌ای با اکشن و فیلتر سفارشی",
+              "en": "Admin panel with custom actions and filters"
+            },
+            {
+              "fa": "مستندسازی API با Swagger؛ تست‌پذیری بالا",
+              "en": "Swagger-documented APIs with high testability"
+            }
+          ]
+        },
+        {
+          "title": {
+            "fa": "وب‌اپلیکیشن فروشگاهی (فروش پمپ صنعتی)",
+            "en": "E-commerce Web App (Industrial Pump Sales)"
+          },
+          "tech": [
+            "Django",
+            "PostgreSQL",
+            "Bootstrap",
+            "Payment Gateway",
+            "Cart System"
+          ],
+          "description": {
+            "fa": "فروشگاه اینترنتی محصولات پمپ صنعتی با ساختار کلاسیک فروشگاهی و سیستم مدیریت سفارشات پیشرفته",
+            "en": "Online store for industrial pumps with a classic commerce structure and an advanced order management system."
+          },
+          "features": [
+            {
+              "fa": "طراحی سیستم Cart و سفارش با امکان پیگیری",
+              "en": "Cart and order system with tracking"
+            },
+            {
+              "fa": "پیاده‌سازی درگاه پرداخت کارت‌به‌کارت اختصاصی",
+              "en": "Custom card-to-card payment gateway"
+            },
+            {
+              "fa": "مدیریت موجودی محصولات و دسته‌بندی‌های تخصصی",
+              "en": "Inventory and specialized category management"
+            },
+            {
+              "fa": "پنل اختصاصی برای مدیریت سفارشات توسط ادمین",
+              "en": "Dedicated admin order management panel"
+            },
+            {
+              "fa": "سیستم اعلان وضعیت سفارش برای مشتریان",
+              "en": "Customer-facing order status notifications"
+            }
+          ],
+          "meta": {
+            "date": {
+              "fa": "دی ۱۴۰۳",
+              "en": "Jan 2024"
+            },
+            "role": {
+              "fa": "نقش: Fullstack Developer",
+              "en": "Role: Fullstack Developer"
+            },
+            "link": "https://waterrisen.com"
+          }
+        },
+        {
+          "title": {
+            "fa": "سامانه سفارش‌گیری عمده‌فروشی (مسباره و تجهیزات)",
+            "en": "Wholesale Ordering System (Abrasives and Equipment)"
+          },
+          "tech": [
+            "Django",
+            "PostgreSQL",
+            "Bootstrap",
+            "Pricing System",
+            "B2B Order Management"
+          ],
+          "description": {
+            "fa": "سامانه سفارش‌گیری عمده‌فروشی (B2B) برای محصولات مسباره و تجهیزات مرتبط و با سیستم قیمت‌گذاری پویا و کنترل کامل توسط ادمین",
+            "en": "B2B wholesale ordering system for abrasives and equipment with dynamic pricing and full admin control."
+          },
+          "features": [
+            {
+              "fa": "سیستم ثبت سفارش بدون قیمت نهایی و تایید توسط ادمین",
+              "en": "Order capture without final price plus admin approval"
+            },
+            {
+              "fa": "فرآیند سفارش‌گیری مرحله‌ای: ثبت → تایید → پرداخت",
+              "en": "Multi-stage ordering workflow: submit → approve → pay"
+            },
+            {
+              "fa": "مدیریت سفارش‌ها، قیمت‌گذاری و وضعیت‌ها از پنل ادمین",
+              "en": "Admin-managed pricing and order status tracking"
+            },
+            {
+              "fa": "سیستم Cart با قابلیت حفظ سبد خرید برای کاربران مهمان",
+              "en": "Cart persistence for guest users"
+            },
+            {
+              "fa": "مدل‌سازی پیشرفته با روابط پیچیده و سیستم تخفیف",
+              "en": "Advanced data modelling with discounts"
+            },
+            {
+              "fa": "ساختار احراز هویت امن و نقش‌بندی قابل توسعه",
+              "en": "Secure auth with extensible roles"
+            }
+          ],
+          "meta": {
+            "date": {
+              "fa": "اسفند ۱۴۰۳",
+              "en": "Mar 2024"
+            },
+            "role": {
+              "fa": "نقش: Backend Developer",
+              "en": "Role: Backend Developer"
+            }
+          }
+        }
+      ],
+      "small": [
+        {
+          "title": {
+            "fa": "سامانهٔ مدیریت دانشجویی",
+            "en": "Student Management System"
+          },
+          "tech": [
+            "Django",
+            "MySQL",
+            "Bootstrap"
+          ],
+          "description": {
+            "fa": "سیستم مدیریت دانشجویان با انتخاب واحد، مدیریت دروس و گروه‌ها، و پنل‌های مجزا برای مدیر و دانشجو.",
+            "en": "Student management platform with course selection, course/group management, and dedicated admin/student panels."
+          },
+          "features": [
+            {
+              "fa": "پنل مدیریت برای مدیران سیستم",
+              "en": "Admin panel for system managers"
+            },
+            {
+              "fa": "پنل کاربری برای دانشجویان",
+              "en": "User panel for students"
+            },
+            {
+              "fa": "مدیریت دروس و گروه‌های آموزشی",
+              "en": "Course and educational group management"
+            },
+            {
+              "fa": "فرآیند انتخاب واحد",
+              "en": "Course selection workflow"
+            }
+          ]
+        },
+        {
+          "title": {
+            "fa": "ATM — پروژهٔ تمرینی",
+            "en": "ATM — Practice Project"
+          },
+          "tech": [
+            "Python"
+          ],
+          "description": {
+            "fa": "اولین پروژهٔ شخصی برای فهم اصول برنامه‌نویسی: مدیریت حساب، پنل مدیر و مشترکین، و فرآیند وام (Multi-Process).",
+            "en": "Early personal project covering account management, admin and customer panels, and a loan process (multi-process)."
+          }
+        },
+        {
+          "title": {
+            "fa": "سامانهٔ دانشگاهی — تمرینی/دانشگاهی",
+            "en": "University System — Practice/Academic"
+          },
+          "tech": [
+            "Django",
+            "Authorization"
+          ],
+          "description": {
+            "fa": "پیاده‌سازی ورود/سطوح دسترسی، انتخاب واحد، مدیریت دانشجو، تعریف مدیر گروه و تمرکز بر طراحی دیتابیس.",
+            "en": "Implemented authentication/authorization, course selection, student management, and group admin flows with database design focus."
+          }
+        }
+      ]
+    },
+    "skills": [
+      "Django / DRF",
+      "Python",
+      "Linux",
+      "Redis",
+      "Celery",
+      "Docker",
+      "Elasticsearch",
+      "Selenium",
+      "OSINT",
+      "MySQL",
+      "PostgreSQL",
+      "Unit Testing",
+      "Git / GitHub / GitLab",
+      "CI/CD (GitLab CI)",
+      "HTML / CSS / Bootstrap",
+      "JavaScript",
+      "C++",
+      "OOP",
+      "RESTful APIs",
+      "JWT / OTP"
+    ],
+    "education": [
+      {
+        "degree": {
+          "fa": "کارشناسی مهندسی کامپیوتر — گرایش نرم‌افزار",
+          "en": "Bachelor's in Computer Engineering — Software"
+        },
+        "school": {
+          "fa": "دانشگاه آزاد اسلامی تهران شمال",
+          "en": "Islamic Azad University, Tehran North"
+        },
+        "date": {
+          "fa": "مهر ۱۴۰۱ — اکنون",
+          "en": "Sep 2022 — Present"
+        },
+        "details": {
+          "fa": "کمک داوطلبانه به دانشجویان در دروس فنی (مبانی برنامه‌نویسی، ساختار داده، پایگاه داده، مهندسی نرم‌افزار و...). عضو انجمن علمی یک ترم و همکاری پژوهشی با یکی از اساتید.",
+          "en": "Volunteered to help peers in technical courses (programming fundamentals, data structures, databases, software engineering, etc.), joined the scientific association for a semester, and collaborated on research."
+        }
+      }
+    ],
+    "certificates": [
+      {
+        "title": {
+          "fa": "مهندسی جامع برنامه‌نویسی پایتون",
+          "en": "Comprehensive Python Programming Engineering"
+        },
+        "issuer": {
+          "fa": "آکادمی دوران — فروردین ۱۴۰۳",
+          "en": "Doran Academy — Mar 2023"
+        }
+      },
+      {
+        "title": {
+          "fa": "Backend Develop with Django",
+          "en": "Backend Develop with Django"
+        },
+        "issuer": {
+          "fa": "آکادمی دوران — اسفند ۱۴۰۳",
+          "en": "Doran Academy — Feb 2024"
+        }
+      }
+    ],
+    "languages": [
+      {
+        "name": {
+          "fa": "فارسی",
+          "en": "Persian"
+        },
+        "level": {
+          "fa": "زبان مادری",
+          "en": "Native"
+        }
+      },
+      {
+        "name": {
+          "fa": "انگلیسی",
+          "en": "English"
+        },
+        "level": {
+          "fa": "پیشرفته",
+          "en": "Advanced"
+        }
+      },
+      {
+        "name": {
+          "fa": "روسی",
+          "en": "Russian"
+        },
+        "level": {
+          "fa": "آشنایی نسبی",
+          "en": "Basic"
+        }
+      }
+    ],
+    "footer": {
+      "text": {
+        "fa": "طراحی شده با علاقه — علی مهدوی‌نیا © ۱۴۰۳ · ",
+        "en": "Designed with passion — Ali Mahdavinia © 2024 · "
+      },
+      "backToTop": {
+        "fa": "بالا",
+        "en": "Top"
+      }
+    }
+  }
+}
+
