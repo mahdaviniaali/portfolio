@@ -70,6 +70,7 @@ const waitForRender = () => new Promise<void>((resolve) => requestAnimationFrame
 export default function ResumePage() {
   const [language, setLanguage] = useState<Language>('fa');
   const [printMode, setPrintMode] = useState<'view' | 'dual'>('view');
+  const [downloadMenuOpen, setDownloadMenuOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -86,7 +87,28 @@ export default function ResumePage() {
     window.localStorage.setItem('selectedLanguage', language);
   }, [language]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      const target = event.target as HTMLElement;
+      const container = document.querySelector(`.${styles.downloadContainer}`);
+      if (container && !container.contains(target)) {
+        setDownloadMenuOpen(false);
+      }
+    };
+
+    if (downloadMenuOpen) {
+      // Use both mousedown and touchstart for better mobile support
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+        document.removeEventListener('touchstart', handleClickOutside);
+      };
+    }
+  }, [downloadMenuOpen]);
+
   const handleDownload = async (mode: 'fa' | 'en' | 'both') => {
+    setDownloadMenuOpen(false);
     const previous = language;
 
     if (mode === 'both') {
@@ -123,16 +145,41 @@ export default function ResumePage() {
         ))}
       </div>
 
-      <div className={styles.downloadBar}>
-        <button className={styles.downloadBtn} onClick={() => handleDownload('fa')}>
-          دانلود فارسی
+      <div className={styles.downloadContainer}>
+        <button
+          className={styles.downloadMainBtn}
+          onClick={() => setDownloadMenuOpen(!downloadMenuOpen)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="18" height="18">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>{language === 'fa' ? 'دانلود' : 'Download'}</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            width="14"
+            height="14"
+            className={downloadMenuOpen ? styles.chevronOpen : ''}
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
-        <button className={styles.downloadBtn} onClick={() => handleDownload('en')}>
-          Download English
-        </button>
-        <button className={styles.downloadBtnAccent} onClick={() => handleDownload('both')}>
-          نسخه دو زبانه
-        </button>
+
+        {downloadMenuOpen && (
+          <div className={styles.downloadMenu}>
+            <button className={styles.downloadMenuItem} onClick={() => handleDownload('fa')}>
+              <span>دانلود فارسی</span>
+            </button>
+            <button className={styles.downloadMenuItem} onClick={() => handleDownload('en')}>
+              <span>Download English</span>
+            </button>
+            <button className={styles.downloadMenuItemAccent} onClick={() => handleDownload('both')}>
+              <span>دوزبانه \ Dual-Language</span>
+            </button>
+          </div>
+        )}
       </div>
 
       <div className={styles.screenOnly}>
