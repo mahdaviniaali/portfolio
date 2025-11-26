@@ -184,6 +184,12 @@
   background: rgba(46, 224, 106, 0.2);
 }
 
+.downloadMenuDivider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+}
+
 .screenOnly {
   position: relative;
   z-index: 1;
@@ -607,40 +613,13 @@
 }
 
 @media print {
-  .resumeRoot {
-    background: #fff;
-    padding: 0;
-    color: #000;
-  }
-
   .languageSwitcher,
   .downloadContainer {
     display: none !important;
   }
 
-  .card,
-  .header {
-    background: #fff;
-    box-shadow: none;
-    border: 1px solid #dfe3e6;
-  }
-
-  .resumeRoot .container {
-    padding: 0;
-    max-width: 100%;
-  }
-
-  .badge,
-  .techTag,
-  .projectItem,
-  .skillItem {
-    background: #f7f8fa;
-    color: #111;
-    border-color: #dfe3e6;
-  }
-
   .screenOnly {
-    display: block;
+    display: block !important;
   }
 
   [data-print-mode='dual'] .screenOnly {
@@ -648,11 +627,62 @@
   }
 
   .printOnly {
-    display: block;
+    display: block !important;
   }
 
   .pageBreak {
-    page-break-before: always;
+    page-break-before: always !important;
+  }
+
+  /* نسخه چاپی ساده (simple mode) */
+  [data-print-mode='simple'] .resumeRoot {
+    background: #fff !important;
+    padding: 0 !important;
+    color: #000 !important;
+  }
+
+  [data-print-mode='simple'] .card,
+  [data-print-mode='simple'] .header {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #dfe3e6 !important;
+  }
+
+  [data-print-mode='simple'] .resumeRoot .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  [data-print-mode='simple'] .badge,
+  [data-print-mode='simple'] .techTag,
+  [data-print-mode='simple'] .projectItem,
+  [data-print-mode='simple'] .skillItem {
+    background: #f7f8fa !important;
+    color: #111 !important;
+    border-color: #dfe3e6 !important;
+  }
+
+  /* در حالت عادی (view یا dual)، استایل‌های اصلی صفحه حفظ می‌شوند */
+  /* اطمینان از چاپ بک‌گراند و رنگ‌ها */
+  .resumeRoot:not([data-print-mode='simple']) {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .resumeRoot:not([data-print-mode='simple']) * {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  /* فقط page-break برای جلوگیری از شکستن بخش‌های مهم */
+  .resumeRoot:not([data-print-mode='simple']) .experienceItem,
+  .resumeRoot:not([data-print-mode='simple']) .projectItem {
+    page-break-inside: avoid;
+  }
+
+  /* Print margins - minimize white borders for designed versions */
+  @page {
+    margin: 0;
   }
 }
 

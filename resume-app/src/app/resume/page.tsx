@@ -69,7 +69,7 @@ const waitForRender = () => new Promise<void>((resolve) => requestAnimationFrame
 
 export default function ResumePage() {
   const [language, setLanguage] = useState<Language>('fa');
-  const [printMode, setPrintMode] = useState<'view' | 'dual'>('view');
+  const [printMode, setPrintMode] = useState<'view' | 'dual' | 'simple'>('view');
   const [downloadMenuOpen, setDownloadMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -107,15 +107,25 @@ export default function ResumePage() {
     }
   }, [downloadMenuOpen]);
 
-  const handleDownload = async (mode: 'fa' | 'en' | 'both') => {
+  const handleDownload = async (mode: 'fa' | 'en' | 'both' | 'simple') => {
     setDownloadMenuOpen(false);
     const previous = language;
+    const previousPrintMode = printMode;
+
+    if (mode === 'simple') {
+      // نسخه چاپی ساده
+      setPrintMode('simple');
+      await waitForRender();
+      window.print();
+      setPrintMode(previousPrintMode);
+      return;
+    }
 
     if (mode === 'both') {
       setPrintMode('dual');
       await waitForRender();
       window.print();
-      setPrintMode('view');
+      setPrintMode(previousPrintMode);
       return;
     }
 
@@ -178,6 +188,10 @@ export default function ResumePage() {
             <button className={styles.downloadMenuItemAccent} onClick={() => handleDownload('both')}>
               <span>دوزبانه \ Dual-Language</span>
             </button>
+            <div className={styles.downloadMenuDivider} />
+            <button className={styles.downloadMenuItem} onClick={() => handleDownload('simple')}>
+              <span>{language === 'fa' ? 'نسخه چاپی' : 'Print Version'}</span>
+            </button>
           </div>
         )}
       </div>
@@ -202,233 +216,233 @@ function ResumeContent({ lang }: { lang: Language }) {
 
   return (
     <div className={styles.container} data-lang={lang}>
-      <header className={styles.header}>
-        <div className={styles.headerTop}>
-          <div className={styles.avatar}>{t(resume.personal.avatar)}</div>
-          <div className={styles.nameBlock}>
-            <h1>{t(resume.personal.name)}</h1>
-            <p>{t(resume.personal.tagline)}</p>
-            <div className={styles.badges}>
-              {resume.personal.badges.map((badge) => (
-                <span key={t(badge)} className={styles.badge}>
-                  {t(badge)}
-                </span>
-              ))}
+        <header className={styles.header}>
+          <div className={styles.headerTop}>
+            <div className={styles.avatar}>{t(resume.personal.avatar)}</div>
+            <div className={styles.nameBlock}>
+              <h1>{t(resume.personal.name)}</h1>
+              <p>{t(resume.personal.tagline)}</p>
+              <div className={styles.badges}>
+                {resume.personal.badges.map((badge) => (
+                  <span key={t(badge)} className={styles.badge}>
+                    {t(badge)}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-        <div className={styles.contactInfo}>
-          <div className={styles.contactItem}>
-            {baseIcons.location}
-            <span>{t(resume.personal.location)}</span>
+          <div className={styles.contactInfo}>
+            <div className={styles.contactItem}>
+              {baseIcons.location}
+              <span>{t(resume.personal.location)}</span>
+            </div>
+            <div className={styles.contactItem}>
+              {baseIcons.phone}
+              <a href={resume.personal.phoneHref}>{t(resume.personal.phone)}</a>
+            </div>
+            <div className={styles.contactItem}>
+              {baseIcons.email}
+              <a href={`mailto:${resume.personal.email}`}>{resume.personal.email}</a>
+            </div>
           </div>
-          <div className={styles.contactItem}>
-            {baseIcons.phone}
-            <a href={resume.personal.phoneHref}>{t(resume.personal.phone)}</a>
-          </div>
-          <div className={styles.contactItem}>
-            {baseIcons.email}
-            <a href={`mailto:${resume.personal.email}`}>{resume.personal.email}</a>
-          </div>
-        </div>
-        <div className={styles.contactInfo}>
-          {resume.contactsSecondary.map((contact) => (
+          <div className={styles.contactInfo}>
+            {resume.contactsSecondary.map((contact) => (
             <a key={contact.type} className={styles.contactItem} href={contact.href} target="_blank" rel="noreferrer">
-              {socialIcons[contact.type]}
-              {t(contact.label)}
-            </a>
-          ))}
-        </div>
-      </header>
+                {socialIcons[contact.type]}
+                {t(contact.label)}
+              </a>
+            ))}
+          </div>
+        </header>
 
-      <main className={styles.mainContent}>
-        <div className={styles.leftColumn}>
-          <section className={styles.card} id="about">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
-              </svg>
-              {t(headings.summary)}
-            </h2>
-            <p className={styles.summary}>{t(resume.summary)}</p>
-          </section>
+        <main className={styles.mainContent}>
+          <div className={styles.leftColumn}>
+            <section className={styles.card} id="about">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
+                </svg>
+                {t(headings.summary)}
+              </h2>
+              <p className={styles.summary}>{t(resume.summary)}</p>
+            </section>
 
-          <section className={styles.card} id="experience">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0 1 12 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 6h.01M5 20h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
-              </svg>
-              {t(headings.experience)}
-            </h2>
-            <div className={styles.experienceList}>
-              {resume.experiences.map((exp) => (
-                <div key={t(exp.title)} className={styles.experienceItem}>
-                  <div className={styles.experienceTitle}>{t(exp.title)}</div>
-                  <div className={styles.experienceMeta}>
-                    <span>{t(exp.location)}</span>
-                    <span>{t(exp.date)}</span>
+            <section className={styles.card} id="experience">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 13.255A23.931 23.931 0 0 1 12 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 6h.01M5 20h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z" />
+                </svg>
+                {t(headings.experience)}
+              </h2>
+              <div className={styles.experienceList}>
+                {resume.experiences.map((exp) => (
+                  <div key={t(exp.title)} className={styles.experienceItem}>
+                    <div className={styles.experienceTitle}>{t(exp.title)}</div>
+                    <div className={styles.experienceMeta}>
+                      <span>{t(exp.location)}</span>
+                      <span>{t(exp.date)}</span>
+                    </div>
+                    <p className={styles.experienceDescription}>{t(exp.description)}</p>
                   </div>
-                  <p className={styles.experienceDescription}>{t(exp.description)}</p>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
 
-          <section className={styles.card} id="projects">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4 4 4-4 4M6 16l-4-4 4-4" />
-              </svg>
-              {t(headings.projectsMain)}
-            </h2>
-            <div className={styles.projectsList}>
-              {resume.projects.major.map((project) => (
-                <div key={t(project.title)} className={styles.projectItem}>
-                  <div className={styles.projectTitle}>{t(project.title)}</div>
-                  <div className={styles.projectTech}>
-                    {project.tech.map((tech) => (
-                      <span key={tech} className={styles.techTag}>
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <p className={styles.projectDescription}>{t(project.description)}</p>
-                  {project.features && (
-                    <div className={styles.projectFeatures}>
-                      {project.features.map((feature) => (
-                        <div key={t(feature)} className={styles.projectFeature}>
-                          {t(feature)}
-                        </div>
+            <section className={styles.card} id="projects">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4 4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                {t(headings.projectsMain)}
+              </h2>
+              <div className={styles.projectsList}>
+                {resume.projects.major.map((project) => (
+                  <div key={t(project.title)} className={styles.projectItem}>
+                    <div className={styles.projectTitle}>{t(project.title)}</div>
+                    <div className={styles.projectTech}>
+                      {project.tech.map((tech) => (
+                        <span key={tech} className={styles.techTag}>
+                          {tech}
+                        </span>
                       ))}
                     </div>
-                  )}
-                  {project.meta && (
-                    <div className={styles.projectMeta}>
-                      {project.meta.date && <span>{t(project.meta.date)}</span>}
-                      {project.meta.role && <span>{t(project.meta.role)}</span>}
-                    </div>
-                  )}
-                  {project.meta?.link && (
+                    <p className={styles.projectDescription}>{t(project.description)}</p>
+                    {project.features && (
+                      <div className={styles.projectFeatures}>
+                        {project.features.map((feature) => (
+                          <div key={t(feature)} className={styles.projectFeature}>
+                            {t(feature)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    {project.meta && (
+                      <div className={styles.projectMeta}>
+                        {project.meta.date && <span>{t(project.meta.date)}</span>}
+                        {project.meta.role && <span>{t(project.meta.role)}</span>}
+                      </div>
+                    )}
+                    {project.meta?.link && (
                     <a className={styles.projectLink} href={project.meta.link} target="_blank" rel="noreferrer">
                       {lang === 'fa' ? 'مشاهده پروژه' : 'View Project'}
-                    </a>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className={styles.sep} />
-
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-              {t(headings.projectsSmall)}
-            </h2>
-
-            <div className={styles.projectsList}>
-              {resume.projects.small.map((project) => (
-                <div key={t(project.title)} className={styles.projectItem}>
-                  <div className={styles.projectTitle}>{t(project.title)}</div>
-                  <div className={styles.projectTech}>
-                    {project.tech.map((tech) => (
-                      <span key={tech} className={styles.techTag}>
-                        {tech}
-                      </span>
-                    ))}
+                      </a>
+                    )}
                   </div>
-                  <p className={styles.projectDescription}>{t(project.description)}</p>
-                  {project.features && (
-                    <div className={styles.projectFeatures}>
-                      {project.features.map((feature) => (
-                        <div key={t(feature)} className={styles.projectFeature}>
-                          {t(feature)}
-                        </div>
+                ))}
+              </div>
+
+              <div className={styles.sep} />
+
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+                {t(headings.projectsSmall)}
+              </h2>
+
+              <div className={styles.projectsList}>
+                {resume.projects.small.map((project) => (
+                  <div key={t(project.title)} className={styles.projectItem}>
+                    <div className={styles.projectTitle}>{t(project.title)}</div>
+                    <div className={styles.projectTech}>
+                      {project.tech.map((tech) => (
+                        <span key={tech} className={styles.techTag}>
+                          {tech}
+                        </span>
                       ))}
                     </div>
-                  )}
+                    <p className={styles.projectDescription}>{t(project.description)}</p>
+                    {project.features && (
+                      <div className={styles.projectFeatures}>
+                        {project.features.map((feature) => (
+                          <div key={t(feature)} className={styles.projectFeature}>
+                            {t(feature)}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </section>
+          </div>
+
+          <aside className={styles.sidebar}>
+            <section className={styles.card} id="skills">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+                {t(headings.skills)}
+              </h2>
+              <div className={styles.skillsGrid}>
+                {resume.skills.map((skill) => (
+                  <div key={skill} className={styles.skillItem}>
+                    {skill}
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <section className={styles.card} id="education">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 20v-7.5l4-2.222" />
+                </svg>
+                {t(headings.education)}
+              </h2>
+              {resume.education.map((edu) => (
+                <div key={t(edu.degree)} className={styles.educationItem}>
+                  <div className={styles.educationTitle}>{t(edu.degree)}</div>
+                  <div className={styles.educationMeta}>{t(edu.school)}</div>
+                  <div className={styles.educationMeta}>{t(edu.date)}</div>
+                  <p className={styles.educationMeta}>{t(edu.details)}</p>
                 </div>
               ))}
-            </div>
-          </section>
-        </div>
+            </section>
 
-        <aside className={styles.sidebar}>
-          <section className={styles.card} id="skills">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636-.707.707M21 12h-1M4 12H3m3.343-5.657-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-              </svg>
-              {t(headings.skills)}
-            </h2>
-            <div className={styles.skillsGrid}>
-              {resume.skills.map((skill) => (
-                <div key={skill} className={styles.skillItem}>
-                  {skill}
+            <section className={styles.card} id="certificates">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                {t(headings.certificates)}
+              </h2>
+              {resume.certificates.map((certificate) => (
+                <div key={t(certificate.title)} className={styles.certificateItem}>
+                  <div className={styles.certificateTitle}>{t(certificate.title)}</div>
+                  <div className={styles.certificateMeta}>{t(certificate.issuer)}</div>
                 </div>
               ))}
-            </div>
-          </section>
+            </section>
 
-          <section className={styles.card} id="education">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                <path d="M12 14l6.16-3.422a12.083 12.083 0 0 1 .665 6.479A11.952 11.952 0 0 0 12 20.055a11.952 11.952 0 0 0-6.824-2.998 12.078 12.078 0 0 1 .665-6.479L12 14z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 20v-7.5l4-2.222" />
-              </svg>
-              {t(headings.education)}
-            </h2>
-            {resume.education.map((edu) => (
-              <div key={t(edu.degree)} className={styles.educationItem}>
-                <div className={styles.educationTitle}>{t(edu.degree)}</div>
-                <div className={styles.educationMeta}>{t(edu.school)}</div>
-                <div className={styles.educationMeta}>{t(edu.date)}</div>
-                <p className={styles.educationMeta}>{t(edu.details)}</p>
-              </div>
-            ))}
-          </section>
-
-          <section className={styles.card} id="certificates">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              {t(headings.certificates)}
-            </h2>
-            {resume.certificates.map((certificate) => (
-              <div key={t(certificate.title)} className={styles.certificateItem}>
-                <div className={styles.certificateTitle}>{t(certificate.title)}</div>
-                <div className={styles.certificateMeta}>{t(certificate.issuer)}</div>
-              </div>
-            ))}
-          </section>
-
-          <section className={styles.card} id="languages">
-            <h2 className={styles.sectionTitle}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-              </svg>
-              {t(headings.languages)}
-            </h2>
-            <div className={styles.languagesList}>
+            <section className={styles.card} id="languages">
+              <h2 className={styles.sectionTitle}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                </svg>
+                {t(headings.languages)}
+              </h2>
+              <div className={styles.languagesList}>
               {resume.languages.map((langItem) => (
                 <div key={t(langItem.name)} className={styles.languageItem}>
                   <span className={styles.languageName}>{t(langItem.name)}</span>
                   <span className={styles.languageLevel}>{t(langItem.level)}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        </aside>
-      </main>
+                  </div>
+                ))}
+              </div>
+            </section>
+          </aside>
+        </main>
 
-      <footer className={styles.footer}>
-        <span>{t(resume.footer.text)}</span>
-        <a className={styles.footerLink} href="#about">
-          {t(resume.footer.backToTop)}
-        </a>
-      </footer>
+        <footer className={styles.footer}>
+          <span>{t(resume.footer.text)}</span>
+          <a className={styles.footerLink} href="#about">
+            {t(resume.footer.backToTop)}
+          </a>
+        </footer>
     </div>
   );
 }
