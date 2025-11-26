@@ -613,6 +613,23 @@
 }
 
 @media print {
+  /* چیدمان شبیه دسکتاپ باشد (حتی اگر از موبایل پرینت گرفته شود) */
+  .resumeRoot {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto !important;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .mainContent {
+    grid-template-columns: minmax(0, 1fr) 320px !important;
+  }
+
   .languageSwitcher,
   .downloadContainer {
     display: none !important;
@@ -674,9 +691,9 @@
     -webkit-print-color-adjust: exact !important;
   }
 
-  /* فقط page-break برای جلوگیری از شکستن بخش‌های مهم */
-  .resumeRoot:not([data-print-mode='simple']) .experienceItem,
-  .resumeRoot:not([data-print-mode='simple']) .projectItem {
+  /* فقط page-break برای جلوگیری از شکستن بخش‌های مهم (فقط نسخه فارسی) */
+  .resumeRoot:not([data-print-mode='simple']) [data-lang='fa'] .experienceItem,
+  .resumeRoot:not([data-print-mode='simple']) [data-lang='fa'] .projectItem {
     page-break-inside: avoid;
   }
 
