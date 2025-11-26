@@ -94,7 +94,7 @@ export default function Home() {
       </div>
 
       <Script src="/dat.gui.min.js" strategy="beforeInteractive" />
-      <Script id="legacy-ga" strategy="afterInteractive">
+      <Script id="legacy-ga" strategy="beforeInteractive">
         {`window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-105392568-1','auto');ga('send','pageview');`}
       </Script>
       <Script src="/fluid.js" strategy="afterInteractive" />

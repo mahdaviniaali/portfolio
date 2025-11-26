@@ -38,6 +38,55 @@
   font-weight: 700;
 }
 
+.downloadBar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.downloadBtn,
+.downloadBtnAccent {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.downloadBtn:hover,
+.downloadBtnAccent:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.downloadBtnAccent {
+  background: rgba(46, 224, 106, 0.15);
+  border-color: rgba(46, 224, 106, 0.4);
+  color: #2ee06a;
+  font-weight: 600;
+}
+
+.screenOnly {
+  position: relative;
+  z-index: 1;
+}
+
+.printOnly {
+  display: none;
+}
+
+.pageBreak {
+  height: 40px;
+}
+
 .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -383,5 +432,67 @@
 .footerLink {
   color: #2ee06a;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .languageSwitcher {
+    position: static;
+    justify-content: center;
+  }
+
+  .downloadBar {
+    position: static;
+    justify-content: center;
+  }
+}
+
+@media print {
+  .resumeRoot {
+    background: #fff;
+    padding: 0;
+    color: #000;
+  }
+
+  .languageSwitcher,
+  .downloadBar {
+    display: none !important;
+  }
+
+  .card,
+  .header {
+    background: #fff;
+    box-shadow: none;
+    border: 1px solid #dfe3e6;
+  }
+
+  .resumeRoot .container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .badge,
+  .techTag,
+  .projectItem,
+  .skillItem {
+    background: #f7f8fa;
+    color: #111;
+    border-color: #dfe3e6;
+  }
+
+  .screenOnly {
+    display: block;
+  }
+
+  [data-print-mode='dual'] .screenOnly {
+    display: none !important;
+  }
+
+  .printOnly {
+    display: block;
+  }
+
+  .pageBreak {
+    page-break-before: always;
+  }
 }
 

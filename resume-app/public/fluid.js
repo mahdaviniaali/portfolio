@@ -24,6 +24,10 @@ SOFTWARE.
 
 'use strict';
 
+window.ga = window.ga || function () {
+    (ga.q = ga.q || []).push(arguments);
+};
+
 // Simulation section
 
 const canvas = document.getElementsByTagName('canvas')[0];
