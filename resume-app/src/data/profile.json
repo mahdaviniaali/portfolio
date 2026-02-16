@@ -105,8 +105,8 @@
       }
     ],
     "summary": {
-      "fa": "برنامه‌نویس بک‌اند با تمرکز روی Django و Python و تجربهٔ ساخت سامانه‌های مقیاس‌پذیر B2B و API-محور. عاشق طراحی معماری ماژولار، تمیزنویسی و حل مسئله‌های واقعی. تجربهٔ آموزش مفاهیم برنامه‌نویسی و مستندسازی فنی دارم و به حوزه‌های مکمل بک‌اند مثل Elasticsearch، DevOps و حتی OSINT علاقه‌مندم.",
-      "en": "Backend developer focused on Django and Python with experience building scalable B2B and API-first systems. Passionate about modular architecture, clean code, and solving real-world problems. I also teach programming and technical writing, and explore adjacent backend fields like Elasticsearch, DevOps, and OSINT."
+      "fa": "توسعه‌دهندهٔ بک‌اند با پایهٔ قوی در تحلیل سیستم و طراحی معماری‌محور.\n\nبه نرم‌افزار به چشم «یک سیستم» نگاه می‌کنم، نه صرفاً مجموعه‌ای از endpointها؛ برای همین روی مدل‌سازی دامنه، ساختار ماژولار، جریان‌های غیرهمزمان و زیربنای بک‌اندی تمرکز دارم که با تغییر نیازمندی‌ها هم مقیاس‌پذیر و قابل توسعه بماند.\n\nدر ساخت سرویس‌های آمادهٔ اتوماسیون مشارکت داشته‌ام و در طراحی زیرساخت‌های بک‌اندی کار کرده‌ام که برای نگه‌داری، رشد و تغییرات بلندمدت مناسب باشند.\n\nتجربهٔ کار تیمی دارم و تیم خودم را هم تشکیل داده‌ام. در کنار مهندسی، در شکل‌دادن ایده‌های محصول هم همراه تیم هستم؛ کمک می‌کنم ایده‌های مبهم به نیازمندی‌های شفاف‌تر و راه‌حل‌های آمادهٔ تولید تبدیل شوند؛ راه‌حل‌هایی که با نیاز واقعی بازار هم‌راستا باشند.\n\nبرای من طراحیِ آگاهانه مهم است: سیستم‌هایی که فقط کار نکنند، بلکه پایدار و واقعاً ارزش‌آفرین باشند.\n\n\n\nیادداشت: در یک پروژهٔ شخصی، تا حد اولیه با الگوها و چالش‌های معماری توزیع‌شده درگیر شده‌ام. هنوز در حال یادگیری این حوزه هستم، اما دارم به‌صورت عملی درک بهتری از اثر این ملاحظات روی طراحی بک‌اند پیدا می‌کنم.",
+      "en": "Backend developer with a strong foundation in system analysis and architecture-oriented design.\n\nI treat software as a system—not just a set of endpoints—so I focus on domain modeling, modular structure, asynchronous workflows, and backend foundations that remain scalable as requirements evolve.\n\nI’ve built automation-ready services and contributed to backend infrastructures designed for maintainability, growth, and long-term change.\n\nI have experience working in teams and have also formed and led my own team. Alongside engineering, I collaborate on shaping product ideas—helping turn loosely defined concepts into clearer requirements and production-ready solutions grounded in real market needs.\n\nI value intentional design: systems that are not only functional, but sustainable and genuinely useful.\n\n\n\nNote: In a personal project, I’ve had some early exposure to distributed-architecture patterns and trade-offs. I’m still learning the space, but I’m actively building a practical understanding of how these considerations affect backend design."
     },
     "experiences": [
       {
@@ -163,8 +163,8 @@
             "Docker"
           ],
           "description": {
-            "fa": "پلتفرم خرید سازمانی؛ ثبت RFQ توسط خریداران و ارسال Proposal توسط فروشندگان. معماری ماژولار و آمادهٔ فازهای آینده (درگاه پرداخت، پلن‌های مالی و...).",
-            "en": "Corporate purchasing platform with RFQs from buyers and proposals from suppliers. Modular architecture ready for future phases like payments and financing."
+            "fa": "پلتفرم خرید سازمانی با طراحی سیستم از صفر: ثبت RFQ توسط خریداران و ارسال Proposal توسط فروشندگان. معماری ماژولار و مستقل از فریمورک، با فلوهای آینده‌نگرانه (درگاه پرداخت، پلن درآمدی و...) و طراحی پلن درآمدی از همان فاز طراحی.",
+            "en": "Corporate purchasing platform with full system design from scratch: RFQs from buyers, proposals from suppliers. Framework-agnostic modular architecture, future-oriented flows (payments, revenue plan), and revenue plan designed from the architecture phase."
           },
           "features": [
             {
@@ -192,6 +192,66 @@
               "en": "Swagger-documented APIs with high testability"
             }
           ]
+        },
+        {
+          "title": {
+            "fa": "پلتفرم اتوماسیون اینستاگرام (SaaS) — لید بک‌اند و معمار سیستم — در حال اجرا",
+            "en": "Smart Instagram Automation Platform (SaaS) — Lead Backend & System Architect — In Progress"
+          },
+          "tech": [
+            "Python",
+            "Django/DRF",
+            "PostgreSQL",
+            "Redis",
+            "Celery",
+            "n8n",
+            "REST APIs",
+            "Docker"
+          ],
+          "description": {
+            "fa": "طراحی و رهبری معماری بک‌اند یک پلتفرم SaaS چندمستاجره برای اتوماسیون هوشمند اینستاگرام و ابزار رشد کسب‌وکار؛ ترکیب اتوماسیون، فلوهای مبتنی بر AI و مؤلفه‌های هوش کسب‌وکاری.",
+            "en": "Led backend system design and architecture for a multi-tenant SaaS combining automation, AI workflows, and business intelligence—focused on intelligent Instagram management and business growth tools."
+          },
+          "features": [
+            {
+              "fa": "معماری بک‌اند مقیاس‌پذیر با اصول توزیع‌پذیر و ماژولار",
+              "en": "Scalable backend infrastructure with distributed-ready, modular design"
+            },
+            {
+              "fa": "مدل‌های دامنه‌محور: کیف پول، ردیابی مالی، CRM، کنترل دسترسی نقش‌محور",
+              "en": "Domain-driven models for wallet, financial tracking, CRM, RBAC"
+            },
+            {
+              "fa": "پایپلاین‌های اتوماسیون و فلوهای event-driven با APIهای شخص ثالث و n8n",
+              "en": "Automation pipelines and event-driven flows with third-party APIs and n8n"
+            },
+            {
+              "fa": "فلوهای پیام‌رسانی با کمک AI، guardrail رفتاری و منطق دستیار قابل پیکربندی",
+              "en": "AI-assisted messaging workflows with behavioral guardrails and configurable logic"
+            },
+            {
+              "fa": "ردیابی و آنالیتیکس مبتنی بر UTM برای attribution بازاریابی و تصمیم‌گیری",
+              "en": "UTM-based tracking and analytics for marketing attribution and decision-making"
+            },
+            {
+              "fa": "ماژول‌های توسعه‌پذیر: رزرو، اعتبارسنجی پرداخت، کمپین SMS، یکپارچه‌سازی موتور محتوا",
+              "en": "Extensible modules: reservation system, payment validation, SMS campaigns, content engine"
+            },
+            {
+              "fa": "مشارکت در پالایش محصول، تعیین اسکوپ فیچرها و منطق درآمدزایی",
+              "en": "Product refinement, feature scoping, and monetization logic aligned with business goals"
+            }
+          ],
+          "meta": {
+            "role": {
+              "fa": "نقش: بک‌اند و لید تیم",
+              "en": "Role: Backend & Team Lead"
+            },
+            "date": {
+              "fa": "اسفند ۱۴۰۴",
+              "en": "Feb 2026"
+            }
+          }
         },
         {
           "title": {
