@@ -65,7 +65,10 @@ const headings = {
   languages: { fa: 'زبان‌ها', en: 'Languages' },
 };
 
-const waitForRender = () => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+const waitForRender = () =>
+  new Promise<void>((resolve) =>
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()))
+  );
 
 export default function ResumePage() {
   const [language, setLanguage] = useState<Language>('fa');
